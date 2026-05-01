@@ -1,0 +1,59 @@
+#ifndef _BOARD_CONFIG_H_
+#define _BOARD_CONFIG_H_
+
+#include <driver/gpio.h>
+
+#define AUDIO_INPUT_SAMPLE_RATE  16000
+#define AUDIO_OUTPUT_SAMPLE_RATE 24000
+
+// XIAO ESP32S3 Sense 内置 PDM 麦克风（使用 NoAudioCodecSimplexPdm）
+#define AUDIO_I2S_MIC_GPIO_SCK  GPIO_NUM_42
+#define AUDIO_I2S_MIC_GPIO_DIN  GPIO_NUM_41
+// 外接 I2S 功放输出（需外部模块，请根据实际接线修改）
+#define AUDIO_I2S_SPK_GPIO_DOUT GPIO_NUM_NC
+#define AUDIO_I2S_SPK_GPIO_BCLK GPIO_NUM_NC
+#define AUDIO_I2S_SPK_GPIO_LRCK GPIO_NUM_NC
+
+// XIAO ESP32S3 LED đã bỏ - GPIO21 dùng cho SD card CS
+#define BUILTIN_LED_GPIO        GPIO_NUM_NC
+#define BOOT_BUTTON_GPIO        GPIO_NUM_0
+#define TOUCH_BUTTON_GPIO       GPIO_NUM_NC
+#define VOLUME_UP_BUTTON_GPIO   GPIO_NUM_NC
+#define VOLUME_DOWN_BUTTON_GPIO GPIO_NUM_NC
+
+// SD Card SPI (XIAO ESP32S3 Sense built-in slot)
+#define SD_CLK          GPIO_NUM_7
+#define SD_MOSI         GPIO_NUM_9
+#define SD_MISO         GPIO_NUM_8
+#define SD_CS           GPIO_NUM_21
+#define SD_SPI_HOST     SPI2_HOST
+#define SD_MOUNT_POINT  "/sdcard"
+
+// XIAO ESP32S3 Sense OV2640/OV3660 摄像头引脚定义
+#define CAMERA_PIN_D0    GPIO_NUM_15
+#define CAMERA_PIN_D1    GPIO_NUM_17
+#define CAMERA_PIN_D2    GPIO_NUM_18
+#define CAMERA_PIN_D3    GPIO_NUM_16
+#define CAMERA_PIN_D4    GPIO_NUM_14
+#define CAMERA_PIN_D5    GPIO_NUM_12
+#define CAMERA_PIN_D6    GPIO_NUM_11
+#define CAMERA_PIN_D7    GPIO_NUM_48
+#define CAMERA_PIN_XCLK  GPIO_NUM_10
+#define CAMERA_PIN_PCLK  GPIO_NUM_13
+#define CAMERA_PIN_VSYNC GPIO_NUM_38
+#define CAMERA_PIN_HREF  GPIO_NUM_47
+#define CAMERA_PIN_SIOC  GPIO_NUM_39
+#define CAMERA_PIN_SIOD  GPIO_NUM_40
+#define CAMERA_PIN_PWDN  GPIO_NUM_NC
+#define CAMERA_PIN_RESET GPIO_NUM_NC
+#define XCLK_FREQ_HZ     20000000
+
+// 无内置显示屏，如需外接 SPI LCD 请修改以下引脚
+#define DISPLAY_BACKLIGHT_PIN GPIO_NUM_NC
+#define DISPLAY_MOSI_PIN      GPIO_NUM_NC
+#define DISPLAY_CLK_PIN       GPIO_NUM_NC
+#define DISPLAY_DC_PIN        GPIO_NUM_NC
+#define DISPLAY_RST_PIN       GPIO_NUM_NC
+#define DISPLAY_CS_PIN        GPIO_NUM_NC
+
+#endif // _BOARD_CONFIG_H_
